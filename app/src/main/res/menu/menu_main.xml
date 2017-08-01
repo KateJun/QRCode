@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/item_create_qrcode"
+        android:icon="@mipmap/ic_template_mgr"
+        android:orderInCategory="100"
+        android:title="创建二维码"
+        app:showAsAction="always" />
+
+    <!--<item-->
+        <!--android:id="@+id/item_share"-->
+        <!--android:icon="@mipmap/ic_launcher"-->
+        <!--android:orderInCategory="80"-->
+        <!--android:title="分享"-->
+        <!--app:showAsAction="never" />-->
+
+    <!--<item-->
+        <!--android:id="@+id/item_more"-->
+        <!--android:icon="@mipmap/toolbar_more"-->
+        <!--android:orderInCategory="100"-->
+        <!--android:title="更多"-->
+        <!--app:showAsAction="never" />-->
+
+</menu>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/edt_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/padding_20dp"
+            android:background="@drawable/edit_bg"
+            android:gravity="top"
+            android:hint="@string/hint_create_code"
+            android:lines="10"
+            android:padding="@dimen/padding_10dp"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/colorPrimary"
+            android:textCursorDrawable="@color/colorPrimary"
+            android:textSize="@dimen/text_16sp" />
+
+        <ImageView
+            android:id="@+id/img_qrcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/padding_5dp"
+            android:src="@mipmap/ic_launcher"
+            android:visibility="invisible" />
+
+        <ImageButton
+            android:id="@+id/imgBtn_clear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_marginBottom="@dimen/padding_30dp"
+            android:layout_marginEnd="@dimen/padding_30dp"
+            android:layout_marginRight="@dimen/padding_30dp"
+            android:background="@null"
+            android:src="@mipmap/clear"
+            android:visibility="invisible" />
+    </FrameLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginLeft="@dimen/padding_20dp"
+        android:layout_marginRight="@dimen/padding_20dp"
+        android:background="@color/color_btn_bg_click" />
+
+    <LinearLayout
+        android:id="@+id/layout_colorpicker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:addStatesFromChildren="true"
+        android:background="@drawable/layout_selector"
+        android:clickable="true"
+        android:descendantFocusability="blocksDescendants"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/padding_20dp"
+        android:paddingLeft="@dimen/padding_20dp"
+        android:paddingRight="@dimen/padding_20dp"
+        android:paddingStart="@dimen/padding_20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/color_picker_forground"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_16sp"
+            android:visibility="visible" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <com.jmgzs.lib.view.roundedimage.RoundedImageView
+            android:id="@+id/img_color"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="@dimen/padding_5dp"
+            android:scaleType="centerInside"
+            app:riv_border_color="@android:color/white"
+            app:riv_border_width="1dp"
+            app:riv_corner_radius="2dp"
+            app:riv_oval="false" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/next_page_black" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginLeft="@dimen/padding_20dp"
+        android:layout_marginRight="@dimen/padding_20dp"
+        android:background="@color/color_btn_bg_click" />
+
+
+    <LinearLayout
+        android:id="@+id/layout_add_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:addStatesFromChildren="true"
+        android:background="@drawable/layout_selector"
+        android:clickable="true"
+        android:descendantFocusability="blocksDescendants"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingEnd="@dimen/padding_20dp"
+        android:paddingLeft="@dimen/padding_20dp"
+        android:paddingRight="@dimen/padding_20dp"
+        android:paddingStart="@dimen/padding_20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_logo"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_16sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <com.jmgzs.lib.view.roundedimage.RoundedImageView
+            android:id="@+id/img_logo"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:padding="@dimen/padding_5dp"
+            android:scaleType="centerInside"
+            app:riv_border_color="@android:color/white"
+            app:riv_border_width="1dp"
+            app:riv_corner_radius="2dp"
+            app:riv_oval="false" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/next_page_black" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_marginLeft="@dimen/padding_20dp"
+        android:layout_marginRight="@dimen/padding_20dp"
+        android:background="@color/color_btn_bg_click" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="@dimen/padding_10dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_reset"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="@dimen/padding_5dp"
+            android:layout_marginEnd="@dimen/padding_15dp"
+            android:layout_marginLeft="@dimen/padding_100dp"
+            android:layout_marginRight="@dimen/padding_5dp"
+            android:layout_marginStart="@dimen/padding_100dp"
+            android:layout_marginTop="@dimen/padding_5dp"
+            android:layout_weight="2"
+            android:background="@drawable/reset_btn_selector"
+            android:text="@string/reset"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_14sp"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/btn_save"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="@dimen/padding_100dp"
+            android:layout_marginLeft="@dimen/padding_5dp"
+            android:layout_marginRight="@dimen/padding_100dp"
+            android:layout_marginStart="@dimen/padding_5dp"
+            android:layout_weight="8"
+            android:background="@drawable/reset_btn_selector"
+            android:text="@string/save_code_image"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_16sp" />
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btn_create"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginEnd="@dimen/padding_100dp"
+        android:layout_marginLeft="@dimen/padding_100dp"
+        android:layout_marginRight="@dimen/padding_100dp"
+        android:layout_marginStart="@dimen/padding_100dp"
+        android:layout_marginTop="@dimen/padding_15dp"
+        android:background="@drawable/reset_btn_selector"
+        android:text="@string/create_qrcode_btntx"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_16sp"
+        android:visibility="gone" />
+</LinearLayout>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/app_bg"
+    android:orientation="vertical">
+
+    <include layout="@layout/include_toolbar" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/padding_30dp"
+        android:orientation="vertical">
+
+        <com.jmgzs.qrcode.ui.widget.ScaleImageView
+            android:id="@+id/imgbtn_scan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:src="@mipmap/scan" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:text="@string/scan_qrcode"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_18sp" />
+
+        <com.jmgzs.qrcode.ui.widget.ScaleImageView
+            android:id="@+id/imgbtn_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@null"
+            android:src="@mipmap/create" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/create_qrcode"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/text_18sp" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

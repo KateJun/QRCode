@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".result.TextActivity">
+
+    <include layout="@layout/include_toolbar" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/padding_20dp"
+        android:background="@drawable/edit_bg"
+        android:minLines="6"
+        android:padding="@dimen/padding_10dp"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+
+    <Button
+        android:id="@+id/btn_copy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/padding_40dp"
+        android:layout_marginLeft="@dimen/padding_40dp"
+        android:layout_marginRight="@dimen/padding_40dp"
+        android:layout_marginStart="@dimen/padding_40dp"
+        android:background="@drawable/reset_btn_selector"
+        android:text="@string/copy"
+        android:textColor="@android:color/white"
+        android:textSize="@dimen/text_16sp" />
+</LinearLayout>
