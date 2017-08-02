@@ -20,8 +20,11 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.jmgsz.lib.adv.AdvUtil;
+import com.jmgsz.lib.adv.enums.AdSlotType;
 import com.jmgzs.qrcode.R;
 import com.jmgzs.qrcode.utils.DensityUtils;
+import com.umeng.analytics.MobclickAgent;
 
 
 /**
@@ -85,16 +88,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         paddingView.setBackgroundColor(getStatusBarColor());
 //        L.e("状态栏高度："+statusBarHeight);
         root.addView(paddingView, 0, new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, statusBarHeight));
-    }
-
-
-    @Override
-    public Resources getResources() {
-        Resources res = super.getResources();
-        Configuration config = new Configuration();//res.getConfiguration();
-//        config.fontScale = 2f;
-        res.updateConfiguration(config, res.getDisplayMetrics());
-        return res;
     }
 
     @Override
@@ -162,6 +155,26 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+
+        if (isBackHome){
+            AdSlotType type = AdSlotType.getRandomInsertType();
+            AdvUtil.getInstance().showInsertAdv(this, type.getTemplateId(), null);
+            isBackHome = false;
+        }
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+    private boolean isBackHome = false ;
 
     private BroadcastReceiver mHomeKeyEventReceiver = new BroadcastReceiver() {
         String SYSTEM_REASON = "reason";
@@ -175,6 +188,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
                 String reason = intent.getStringExtra(SYSTEM_REASON);
                 if (TextUtils.equals(reason, SYSTEM_HOME_KEY)) {
                     //表示按了home键,程序到了后台
+                    isBackHome = true;
                 } else if (TextUtils.equals(reason, SYSTEM_HOME_KEY_LONG)) {
                     //表示长按home键,显示最近使用的程序列表
                 }

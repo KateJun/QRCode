@@ -15,6 +15,7 @@ import com.jmgzs.qrcode.R;
 import com.jmgzs.qrcode.base.BaseActivity;
 import com.jmgzs.qrcode.ui.DeCodeActivity;
 import com.jmgzs.qrcode.utils.T;
+import com.jmgzs.qrcode.utils.UmengUtil;
 import com.jmgzs.zxing.scanner.common.Scanner;
 import com.jmgzs.zxing.scanner.result.AddressBookResult;
 import com.jmgzs.zxing.scanner.result.ISBNResult;
@@ -126,6 +127,7 @@ public class TextActivity extends BaseActivity {
 
     @Override
     public void onClick(View view) {
+        UmengUtil.event(this,UmengUtil.U_COPY);
         ClipboardManager cm = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
         cm.setPrimaryClip(ClipData.newPlainText(null, resultTxt.getText()));
         T.toastS(this, "复制成功,可以发给朋友们了。");

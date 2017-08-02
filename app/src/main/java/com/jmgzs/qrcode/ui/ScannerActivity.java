@@ -37,6 +37,7 @@ import com.jmgzs.qrcode.R;
 import com.jmgzs.qrcode.picture.PickPictureTotalActivity;
 import com.jmgzs.qrcode.utils.DensityUtils;
 import com.jmgzs.qrcode.utils.T;
+import com.jmgzs.qrcode.utils.UmengUtil;
 import com.jmgzs.zxing.scanner.ScannerView;
 import com.jmgzs.zxing.scanner.common.Scanner;
 import com.jmgzs.zxing.scanner.decode.QRDecode;
@@ -101,6 +102,7 @@ public class ScannerActivity extends DeCodeActivity {
                             new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             APPLY_READ_EXTERNAL_STORAGE);
                 } else {
+                    UmengUtil.event(ScannerActivity.this, UmengUtil.U_ALBUM);
                     PickPictureTotalActivity.gotoActivity(ScannerActivity.this);
                 }
             }
@@ -150,6 +152,7 @@ public class ScannerActivity extends DeCodeActivity {
         mScannerView.toggleLight(isChecked);
         if (isChecked) flashLightIcon.setImageResource(R.mipmap.open_flashlight);
         else flashLightIcon.setImageResource(R.mipmap.close_flashlight);
+        UmengUtil.event(this, UmengUtil.U_FLASHLIGHT);
     }
 
     private void initToolbar() {
@@ -171,6 +174,8 @@ public class ScannerActivity extends DeCodeActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.item_create_qrcode:
+                        UmengUtil.event(ScannerActivity.this, UmengUtil.U_SCAN_CREATE);
+
                         startActivity(new Intent(ScannerActivity.this, CreateCodeActivity.class));
                         break;
 //                    case R.id.item_share:

@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">lib_colorpicker</string>
     <string name="dialog_title">颜色选择</string>
     <string name="dialog_positive">确定</string>
     <string name="dialog_negative">取消</string>

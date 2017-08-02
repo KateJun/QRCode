@@ -6,6 +6,7 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/adv_image"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:contentDescription="Hello World!" />

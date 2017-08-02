@@ -14,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
+import android.webkit.WebView;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -21,14 +22,21 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.google.zxing.client.result.ParsedResultType;
+import com.jmgsz.lib.adv.AdvUtil;
+import com.jmgsz.lib.adv.enums.AdSlotType;
+import com.jmgsz.lib.adv.interfaces.IAdvHtmlCallback;
+import com.jmgsz.lib.adv.interfaces.IAdvStatusCallback;
 import com.jmgzs.lib.colorpicker.ColorPickerDialog;
 import com.jmgzs.lib.colorpicker.OnColorPickerListener;
 import com.jmgzs.qrcode.R;
 import com.jmgzs.qrcode.base.BaseActivity;
+import com.jmgzs.qrcode.utils.DensityUtils;
+import com.jmgzs.qrcode.utils.UmengUtil;
 import com.jmgzs.zxing.scanner.common.Scanner;
 import com.jmgzs.zxing.scanner.encode.QREncode;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 import static com.jmgzs.qrcode.R.id.checkBox;
 
@@ -45,12 +53,26 @@ public class MainNewActivity extends BaseActivity {
         getView(R.id.toolbar_title).setVisibility(View.VISIBLE);
         findViewById(R.id.imgbtn_scan).setOnClickListener(this);
         findViewById(R.id.imgbtn_create).setOnClickListener(this);
+
+        int templateID = AdSlotType.BANNER_640_100.getTemplateId();
+        if (Math.random() * 10 >= 5) {
+            templateID = AdSlotType.BANNER_640_100_W.getTemplateId();
+        }
+        final WebView wv = getView(R.id.adv_banner_bottom_wv);
+        wv.setVisibility(View.INVISIBLE);
+        AdvUtil.getInstance().showBannerAdv(this, templateID, false, false, wv, DensityUtils.SCREEN_WIDTH_PIXELS, new IAdvStatusCallback() {
+            @Override
+            public void close(int i) {
+                wv.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imgbtn_create:
+                UmengUtil.event(this, UmengUtil.U_CREATE);
                 startActivity(new Intent(MainNewActivity.this, CreateCodeActivity.class));
 
                 break;
@@ -70,4 +92,18 @@ public class MainNewActivity extends BaseActivity {
                 break;
         }
     }
+
+    private boolean isAdvShow = false;
+
+    @Override
+    public void onBackPressed() {
+        if (!isAdvShow) {
+            AdSlotType type = AdSlotType.getRandomInsertType();
+            AdvUtil.getInstance().showInsertAdv(this, type.getTemplateId(), null);
+            isAdvShow = true;
+        } else {
+            super.onBackPressed();
+        }
+    }
+
 }

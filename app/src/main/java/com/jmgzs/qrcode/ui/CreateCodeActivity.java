@@ -47,6 +47,7 @@ import com.jmgzs.qrcode.utils.FileUtils;
 import com.jmgzs.qrcode.utils.GetPathFromUri4kitkat;
 import com.jmgzs.qrcode.utils.PictureUtil;
 import com.jmgzs.qrcode.utils.T;
+import com.jmgzs.qrcode.utils.UmengUtil;
 import com.jmgzs.zxing.scanner.encode.QREncode;
 
 import java.io.ByteArrayOutputStream;
@@ -117,9 +118,11 @@ public class CreateCodeActivity extends BaseActivity {
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
                     case R.id.item_create_qrcode:
+                        UmengUtil.event(CreateCodeActivity.this, UmengUtil.U_CREATE);
                         createCode();
                         break;
                     case R.id.item_reset:
+                        UmengUtil.event(CreateCodeActivity.this, UmengUtil.U_RESET);
                         changeBtn(R.string.create_qrcode_btntx, true);
                         break;
                     default:
@@ -171,9 +174,11 @@ public class CreateCodeActivity extends BaseActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.layout_add_logo:
+                UmengUtil.event(this, UmengUtil.U_ADDICON);
                 gallery();
                 break;
             case R.id.layout_colorpicker:
+                UmengUtil.event(this, UmengUtil.U_COLOR);
                 showColorPicker();
                 break;
 //            case R.id.btn_create:
@@ -183,9 +188,11 @@ public class CreateCodeActivity extends BaseActivity {
 //                    createCode();
 //                break;
             case R.id.btn_reset:
+                UmengUtil.event(this, UmengUtil.U_RESET_CONFIG);
                 reset();
                 break;
             case R.id.btn_save:
+                UmengUtil.event(this, UmengUtil.U_SAVE);
                 save();
                 break;
             case R.id.imgBtn_clear:
@@ -211,10 +218,10 @@ public class CreateCodeActivity extends BaseActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        if (canCreateBtnBack()){
+        if (canCreateBtnBack()) {
             menu.findItem(R.id.item_create_qrcode).setVisible(false);
             menu.findItem(R.id.item_reset).setVisible(true);
-        }else {
+        } else {
             menu.findItem(R.id.item_create_qrcode).setVisible(true);
             menu.findItem(R.id.item_reset).setVisible(false);
         }
