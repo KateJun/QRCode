@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">二维码</string>
+    <string name="result_scan">扫描结果</string>
+    <string name="create_qrcode">二维码制作</string>
+    <string name="create_qrcode_btntx">生成二维码</string>
+    <string name="back">重做二维码</string>
+    <string name="scan_qrcode">扫描二维码</string>
+
+    <string name="hint_create_code">二维码内容长度控制在100字以内</string>
+    <string name="reset">重置</string>
+    <string name="color_picker_forground">前景色</string>
+    <string name="add_logo">添加Logo</string>
+    <string name="save_code_image">保存二维码</string>
+    <string name="copy">复制文本</string>
+    <string name="album">相册</string>
+</resources>
