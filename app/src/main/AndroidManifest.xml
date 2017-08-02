@@ -42,7 +42,6 @@
 
         <activity
             android:name=".ui.ScannerActivity"
-            android:label="@null"
             android:launchMode="singleTask"
             android:screenOrientation="portrait">
             <intent-filter>
