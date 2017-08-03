@@ -20,8 +20,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.jmgsz.lib.adv.AdvUtil;
-import com.jmgsz.lib.adv.enums.AdSlotType;
+import com.jmgzs.lib.adv.AdvUtil;
+import com.jmgzs.lib.adv.enums.AdSlotType;
 import com.jmgzs.qrcode.R;
 import com.jmgzs.qrcode.utils.DensityUtils;
 import com.umeng.analytics.MobclickAgent;
@@ -160,12 +160,6 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         super.onResume();
         MobclickAgent.onResume(this);
 
-        if (isBackHome){
-            AdSlotType type = AdSlotType.getRandomInsertType();
-            AdvUtil.getInstance().showInsertAdv(this, type.getTemplateId(), null);
-            isBackHome = false;
-        }
-
     }
 
     @Override
@@ -174,7 +168,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         MobclickAgent.onPause(this);
     }
 
-    private boolean isBackHome = false ;
+    protected boolean isBackHome = false ;
 
     private BroadcastReceiver mHomeKeyEventReceiver = new BroadcastReceiver() {
         String SYSTEM_REASON = "reason";

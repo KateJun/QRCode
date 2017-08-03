@@ -33,6 +33,8 @@ import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
 import com.bumptech.glide.request.target.Target;
 import com.google.zxing.client.result.ParsedResultType;
+import com.jmgzs.lib.adv.AdvUtil;
+import com.jmgzs.lib.adv.enums.AdSlotType;
 import com.jmgzs.lib.colorpicker.ColorPickerDialog;
 import com.jmgzs.lib.colorpicker.OnColorPickerListener;
 import com.jmgzs.lib.view.roundedimage.RoundedDrawable;
@@ -202,6 +204,16 @@ public class CreateCodeActivity extends BaseActivity {
                 break;
         }
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (isBackHome){
+            AdSlotType type = AdSlotType.getRandomInsertType();
+            AdvUtil.getInstance().showInsertAdv(this, type.getTemplateId(), null);
+            isBackHome = false;
+        }
     }
 
     @Override

@@ -2,8 +2,8 @@ package com.jmgzs.qrcode.ui;
 
 import android.os.CountDownTimer;
 
-import com.jmgsz.lib.adv.AdvUtil;
-import com.jmgsz.lib.adv.ui.AdvSplashActivity;
+import com.jmgzs.lib.adv.AdvUtil;
+import com.jmgzs.lib.adv.ui.AdvSplashActivity;
 import com.jmgzs.lib_network.utils.FileUtils;
 import com.jmgzs.qrcode.R;
 import com.umeng.analytics.MobclickAgent;

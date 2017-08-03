@@ -1,44 +1,21 @@
 package com.jmgzs.qrcode.ui;
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.text.TextUtils;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.RadioGroup;
-import android.widget.TextView;
 
-import com.google.zxing.client.result.ParsedResultType;
-import com.jmgsz.lib.adv.AdvUtil;
-import com.jmgsz.lib.adv.enums.AdSlotType;
-import com.jmgsz.lib.adv.interfaces.IAdvHtmlCallback;
-import com.jmgsz.lib.adv.interfaces.IAdvStatusCallback;
-import com.jmgzs.lib.colorpicker.ColorPickerDialog;
-import com.jmgzs.lib.colorpicker.OnColorPickerListener;
+import com.jmgzs.lib.adv.AdvUtil;
+import com.jmgzs.lib.adv.enums.AdSlotType;
+import com.jmgzs.lib.adv.interfaces.IAdvStatusCallback;
 import com.jmgzs.qrcode.R;
 import com.jmgzs.qrcode.base.BaseActivity;
 import com.jmgzs.qrcode.utils.DensityUtils;
 import com.jmgzs.qrcode.utils.UmengUtil;
-import com.jmgzs.zxing.scanner.common.Scanner;
-import com.jmgzs.zxing.scanner.encode.QREncode;
-
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-
-import static com.jmgzs.qrcode.R.id.checkBox;
 
 public class MainNewActivity extends BaseActivity {
 
@@ -106,4 +83,13 @@ public class MainNewActivity extends BaseActivity {
         }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (isBackHome){
+            AdSlotType type = AdSlotType.getRandomInsertType();
+            AdvUtil.getInstance().showInsertAdv(this, type.getTemplateId(), null);
+            isBackHome = false;
+        }
+    }
 }

@@ -2,7 +2,9 @@
 
 buildscript {
     repositories {
+        mavenLocal()
         jcenter()
+        maven{ url "http://maven.weimob.com/content/repositories/snapshots/"}
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.0'
@@ -14,7 +16,9 @@ buildscript {
 
 allprojects {
     repositories {
+        mavenLocal()
         jcenter()
+        maven{ url "http://maven.weimob.com/content/repositories/snapshots/"}
     }
 }
 
