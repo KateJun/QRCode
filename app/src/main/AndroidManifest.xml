@@ -88,6 +88,10 @@
             android:name="UMENG_CHANNEL"
             android:value="Umeng" />
 
+        <meta-data
+            android:name="mj_app_key"
+            android:value="11f5c33c-a50b-11e7-b16d-e435c87f069a" />
+
 
         <activity
             android:name="com.jmgzs.lib.adv.ui.AdvWebViewActivity"

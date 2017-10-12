@@ -8,7 +8,7 @@
         android:id="@+id/item_create_qrcode"
         android:icon="@mipmap/ic_template_mgr"
         android:orderInCategory="100"
-        android:title="创建二维码"
+        android:title="@string/create_qrcode"
         app:showAsAction="always" />
 
     <!--<item-->

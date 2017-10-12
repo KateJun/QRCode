@@ -37,37 +37,6 @@ public class SplashActivity extends AdvSplashActivity {
         return MainNewActivity.class.getName();
     }
 
-    @Override
-    protected String getTempDir() {
-        return FileUtils.getCachePath(this) + File.separator + "info";
-    }
-
-//    @Override
-//    protected int getContent(Bundle save) {
-//        return R.layout.activity_splash;
-//    }
-//
-//    @Override
-//    protected void initView() {
-//        initUmeng();
-//        countDownTimer = new CountDownTimer(2000, 1000) {
-//            @Override
-//            public void onTick(long millisUntilFinished) {
-//            }
-//
-//            @Override
-//            public void onFinish() {
-//                goMain();
-//            }
-//        };
-//        countDownTimer.start();
-//    }
-//
-//    private void goMain() {
-//        startActivity(new Intent(SplashActivity.this, MainNewActivity.class));
-//        finish();
-//
-//    }
 
     @Override
     protected int getStatusBarColor() {

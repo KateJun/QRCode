@@ -209,7 +209,7 @@ public class CreateCodeActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if (isBackHome){
+        if (isBackHome) {
             AdSlotType type = AdSlotType.getRandomInsertType();
             AdvUtil.getInstance().showInsertAdv(this, type.getTemplateId(), null);
             isBackHome = false;
@@ -497,6 +497,7 @@ public class CreateCodeActivity extends BaseActivity {
     public void hideSoftInputMethod() {
         InputMethodManager imm = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);
         if (imm.isActive())
-            imm.hideSoftInputFromWindow(edtContent.getWindowToken(), 0);
+//            imm.hideSoftInputFromWindow(edtContent.getWindowToken(), 0);
+            imm.hideSoftInputFromInputMethod(edtContent.getWindowToken(), 0);
     }
 }
